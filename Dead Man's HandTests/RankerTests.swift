@@ -16,6 +16,34 @@ class Dead_Man_s_HandTests: XCTestCase {
         assertNoMemoryLeak(player)
         assertNoMemoryLeak(pokerGame)
     }
+    
+    func testHighCard_beatsLowCard() {
+        let pokerGame = PokerGameSpy()
+        
+        let losingHand = Hand(cards: [
+            Card(suit: .hearts, rank: .jack),
+            Card(suit: .spades, rank: .eight),
+            Card(suit: .hearts, rank: .ten),
+            Card(suit: .hearts, rank: .ace),
+            Card(suit: .hearts, rank: .queen)
+        ])
+        
+        let winningHand = Hand(cards: [
+            Card(suit: .diamonds, rank: .king),
+            Card(suit: .spades, rank: .six),
+            Card(suit: .diamonds, rank: .nine),
+            Card(suit: .hearts, rank: .ten),
+            Card(suit: .diamonds, rank: .ace)
+        ])
+        
+        pokerGame.player2.hand = losingHand
+        pokerGame.player1.hand = winningHand
+        pokerGame.playHands()
+        
+        XCTAssertEqual(pokerGame.highHand, .highCard)
+        XCTAssertEqual(pokerGame.highCard.rank, winningHand!.highCard().rank)
+        XCTAssertEqual(pokerGame.winningPlayer.name, pokerGame.player1.name)
+    }
 }
 
 private class PokerGameSpy: CardGame {
@@ -24,6 +52,7 @@ private class PokerGameSpy: CardGame {
     var player2: Player
     
     var highHand: WinningHandType!
+    var winningHand: Hand!
     var winningPlayer: Player!
     var highCard: Card!
     
@@ -32,6 +61,8 @@ private class PokerGameSpy: CardGame {
     init() {
         self.player1 = Player(name: "Player 1")
         self.player2 = Player(name: "Player 2")
+        drawHands()
+        playHands()
     }
     
     
@@ -58,6 +89,7 @@ private class PokerGameSpy: CardGame {
     
     func playHands() {
         let winner = ranker.highHand()
+        winningHand = winner.player.hand
         highHand = winner.rank
         winningPlayer = winner.player
         highCard = winningPlayer.hand!.highCard()
