@@ -13,6 +13,7 @@
 		AA1D859326D61FFF00ACDCF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1D859126D61FFF00ACDCF1 /* Main.storyboard */; };
 		AA1D859526D6200000ACDCF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1D859426D6200000ACDCF1 /* Assets.xcassets */; };
 		AA1D859826D6200000ACDCF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1D859626D6200000ACDCF1 /* LaunchScreen.storyboard */; };
+		AA1D85A326D6284E00ACDCF1 /* UIColor+NamedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AA1D859426D6200000ACDCF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA1D859726D6200000ACDCF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA1D859926D6200000ACDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NamedAsset.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				AA1D859126D61FFF00ACDCF1 /* Main.storyboard */,
 				AA1D859426D6200000ACDCF1 /* Assets.xcassets */,
 				AA1D859626D6200000ACDCF1 /* LaunchScreen.storyboard */,
+				AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1D85A326D6284E00ACDCF1 /* UIColor+NamedAsset.swift in Sources */,
 				AA1D859026D61FFF00ACDCF1 /* ViewController.swift in Sources */,
 				AA1D858C26D61FFF00ACDCF1 /* AppDelegate.swift in Sources */,
 				AA1D858E26D61FFF00ACDCF1 /* SceneDelegate.swift in Sources */,
