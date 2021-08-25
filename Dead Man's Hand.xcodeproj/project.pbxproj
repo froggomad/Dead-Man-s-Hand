@@ -17,6 +17,8 @@
 		AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D85A526D62A8A00ACDCF1 /* Card.swift */; };
 		AAE39F7E26D69C69004AB704 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F7D26D69C69004AB704 /* Deck.swift */; };
 		AAE39F8026D69E2F004AB704 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F7F26D69E2F004AB704 /* Hand.swift */; };
+		AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8126D6A3B3004AB704 /* Player.swift */; };
+		AAE39F8426D6A4C4004AB704 /* HandRanker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8326D6A4C4004AB704 /* HandRanker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		AA1D85A526D62A8A00ACDCF1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		AAE39F7D26D69C69004AB704 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		AAE39F7F26D69E2F004AB704 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		AAE39F8126D6A3B3004AB704 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AAE39F8326D6A4C4004AB704 /* HandRanker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRanker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,8 @@
 		AA1D859F26D6201500ACDCF1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AA1D858F26D61FFF00ACDCF1 /* ViewController.swift */,
+				AAE39F8526D6A4E9004AB704 /* Model Controllers */,
+				AAE39F8626D6A4EF004AB704 /* View Controllers */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -107,8 +112,25 @@
 				AA1D85A526D62A8A00ACDCF1 /* Card.swift */,
 				AAE39F7D26D69C69004AB704 /* Deck.swift */,
 				AAE39F7F26D69E2F004AB704 /* Hand.swift */,
+				AAE39F8126D6A3B3004AB704 /* Player.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AAE39F8526D6A4E9004AB704 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AAE39F8326D6A4C4004AB704 /* HandRanker.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		AAE39F8626D6A4EF004AB704 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA1D858F26D61FFF00ACDCF1 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +207,11 @@
 				AA1D85A326D6284E00ACDCF1 /* UIColor+NamedAsset.swift in Sources */,
 				AA1D859026D61FFF00ACDCF1 /* ViewController.swift in Sources */,
 				AA1D858C26D61FFF00ACDCF1 /* AppDelegate.swift in Sources */,
+				AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */,
 				AAE39F8026D69E2F004AB704 /* Hand.swift in Sources */,
 				AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */,
 				AA1D858E26D61FFF00ACDCF1 /* SceneDelegate.swift in Sources */,
+				AAE39F8426D6A4C4004AB704 /* HandRanker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
