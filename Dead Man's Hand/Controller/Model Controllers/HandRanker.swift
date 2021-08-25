@@ -17,26 +17,41 @@ struct HandRanker {
     }
     
     func highHand() -> WinningHand {
-        // TODO: force-unwrapped
-        let highHand1 = player1.hand!.rankHand()
-        let highHand2 = player2.hand!.rankHand()
+        guard let hand1 = player1.hand,
+              let hand2 = player2.hand
+        else { return .tie }
+        
+        let highHand1 = hand1.rankHand()
+        let highHand2 = hand2.rankHand()
         
         if highHand1.rawValue > highHand2.rawValue {
             return .win(rank: highHand1, player: player1)
-            // highHand tied, check for next highest card that doesn't tie
+            // highHand tied
         } else if highHand1.rawValue == highHand2.rawValue {
-            
-            if player1.hand!.highCard() > player2.hand!.highCard() {
+            // check for next highest card that doesn't tie
+            if hand1.highCard() > hand2.highCard() {
                 return .win(rank: highHand1, player: player1)
             } else if player1.hand!.highCard() == player2.hand!.highCard() {
-                return .tie
+                var highCard = hand1.highCard()
+                
+                for i in (0...3).reversed() {
+                    if hand1.cards[i] > hand2.cards[i] {
+                        highCard = hand1.cards[i]
+                    } else if player2.hand!.cards[i] > player1.hand!.cards[i] {
+                        highCard = hand2.cards[i]
+                    }
+                }
+                
+                if highCard == hand2.highCard() {
+                    return .tie
+                } else {
+                    return highCard > hand1.highCard() ? .win(rank: highHand2, player: player2) : .win(rank: highHand1, player: player1)
+                }
             } else {
                 return .win(rank: highHand2, player: player2)
             }
-            
-        } else {
-            return .win(rank: highHand2, player: player2)
         }
+        return .tie // edge case
     }
 }
 
