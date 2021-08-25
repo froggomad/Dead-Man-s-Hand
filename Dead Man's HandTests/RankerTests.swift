@@ -313,7 +313,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         pokerGame.playHands()
         
         XCTAssertEqual(pokerGame.highHand, expectedHandRank)
-        XCTAssertEqual(pokerGame.highCard?.rank, winningHand.highCard().rank)
+        XCTAssertEqual(pokerGame.highCard?.rank, winningHand.cards.last!.rank)
         XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name)
     }
 }
@@ -364,7 +364,8 @@ private class PokerGameSpy: CardGame {
             winningHand = player.hand!
             self.highHand = rank
             winningPlayer = player
-            highCard = player.hand!.highCard()
+            guard let hand = player.hand else { return }
+            highCard = ranker.highestCard(hand)
         case .tie:
             break
         }
