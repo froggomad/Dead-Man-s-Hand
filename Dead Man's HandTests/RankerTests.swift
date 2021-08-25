@@ -41,8 +41,8 @@ class Dead_Man_s_HandTests: XCTestCase {
         pokerGame.playHands()
         
         XCTAssertEqual(pokerGame.highHand, .highCard)
-        XCTAssertEqual(pokerGame.highCard.rank, winningHand!.highCard().rank)
-        XCTAssertEqual(pokerGame.winningPlayer.name, pokerGame.player1.name)
+        XCTAssertEqual(pokerGame.highCard?.rank, winningHand!.highCard().rank)
+        XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name)
     }
 }
 
@@ -51,18 +51,16 @@ private class PokerGameSpy: CardGame {
     var player1: Player
     var player2: Player
     
-    var highHand: WinningHandType!
-    var winningHand: Hand!
-    var winningPlayer: Player!
-    var highCard: Card!
+    var highHand: WinningHandType?
+    var winningHand: Hand?
+    var winningPlayer: Player?
+    var highCard: Card?
     
     lazy var ranker = HandRanker(player1: player1, player2: player2)
     
     init() {
         self.player1 = Player(name: "Player 1")
         self.player2 = Player(name: "Player 2")
-        drawHands()
-        playHands()
     }
     
     
@@ -88,11 +86,16 @@ private class PokerGameSpy: CardGame {
     }
     
     func playHands() {
-        let winner = ranker.highHand()
-        winningHand = winner.player.hand
-        highHand = winner.rank
-        winningPlayer = winner.player
-        highCard = winningPlayer.hand!.highCard()
+        let highHand = ranker.highHand()
+        switch highHand {
+        case .win(let rank, let player):
+            winningHand = player.hand!
+            self.highHand = rank
+            winningPlayer = player
+            highCard = player.hand!.highCard()
+        case .tie:
+            break
+        }
     }
     
     
