@@ -17,6 +17,26 @@ class Dead_Man_s_HandTests: XCTestCase {
         assertNoMemoryLeak(pokerGame)
     }
     
+    func testHighestStraightFlush_wins() {
+        guard let losingHand = Hand(cards: [
+            Card(suit: .hearts, rank: .two),
+            Card(suit: .hearts, rank: .three),
+            Card(suit: .hearts, rank: .four),
+            Card(suit: .hearts, rank: .five),
+            Card(suit: .hearts, rank: .six)
+        ]),
+        let winningHand = Hand(cards: [
+            Card(suit: .spades, rank: .king),
+            Card(suit: .spades, rank: .ace),
+            Card(suit: .spades, rank: .ten),
+            Card(suit: .spades, rank: .queen),
+            Card(suit: .spades, rank: .jack)
+        ])
+        else { return }
+        
+        testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .straightFlush)
+    }
+    
     func testStraightFlush_winsOver_fourOfAKind() {
         guard let winningHand = Hand(cards: [
             Card(suit: .hearts, rank: .two),
