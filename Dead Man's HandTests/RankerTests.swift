@@ -17,7 +17,11 @@ class Dead_Man_s_HandTests: XCTestCase {
         assertNoMemoryLeak(pokerGame)
     }
     
-    func testFourOfAKind_winsOverFullHouse() {
+    func testHighFourOfAKind_winsOver_lowFourOfAKind() {
+        
+    }
+    
+    func testFourOfAKind_winsOver_fullHouse() {
         guard let losingHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
             Card(suit: .hearts, rank: .ace),
@@ -37,7 +41,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .fourOfAKind)
     }
     
-    func testFullHouse_winsOverFlush() {
+    func testFullHouse_winsOver_flush() {
         guard let winningHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
             Card(suit: .hearts, rank: .ace),
@@ -77,7 +81,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .flush)
     }
     
-    func testFlush_winsOverStraight() {
+    func testFlush_winsOver_straight() {
         guard let winningHand = Hand(cards: [
             Card(suit: .hearts, rank: .two),
             Card(suit: .hearts, rank: .three),
@@ -102,7 +106,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         // TODO: refactor helper function to handle ties
     }
     
-    func testStraight_winsOverThreeOfAKind() {
+    func testStraight_winsOver_threeOfAKind() {
         guard let winningHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
             Card(suit: .hearts, rank: .three),
@@ -121,7 +125,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .straight)
     }
     
-    func test3OfAKind_winsOverTwoPair() {
+    func test3OfAKind_winsOver_twoPair() {
         guard let losingHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
             Card(suit: .hearts, rank: .two),
@@ -141,7 +145,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .threeOfAKind)
     }
     
-    func testTwoPair_winsOverPair() {
+    func testTwoPair_winsOver_pair() {
         guard let winningHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
             Card(suit: .hearts, rank: .two),
@@ -184,7 +188,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .pair)
     }
     
-    func testPairWins_overDud() {
+    func testPairWins_over_dud() {
         guard let losingHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
             Card(suit: .hearts, rank: .ace),
@@ -226,7 +230,7 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .pair)
     }
     
-    func testHighCard_beatsLowCard() {
+    func testHighCard_winsOver_lowCard() {
         guard let losingHand = Hand(cards: [
             Card(suit: .hearts, rank: .jack),
             Card(suit: .spades, rank: .eight),
