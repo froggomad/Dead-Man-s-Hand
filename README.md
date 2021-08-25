@@ -43,6 +43,6 @@ _____________
 
 # note: Some tradeoffs were made!
 
-I typically avoid using classes unless I need the features of a class. That said, it's much less cumbersome to track mutating state when a class is involved rather than a struct, so I went in that direction.
+I typically avoid using classes unless I need the features of a class. That said, it's much less cumbersome to track mutating state when a class is involved rather than a struct, so I went in that direction with the player.
 
 It's noted in the architecture section that I'm unsure of where to put the players, but the solution I have is working.
