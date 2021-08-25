@@ -17,6 +17,7 @@ struct Hand {
     init?(cards: [Card]) {
         guard cards.count == 5 else { return nil }
         self.cards = cards
+        sort()
     }
     
     /// Rank a player's Hand
@@ -105,6 +106,10 @@ struct Hand {
     func highCard() -> Card {
         let max = cards.max(by: { $0.rank.rawValue < $1.rank.rawValue})!
         return max
+    }
+    
+    mutating func sort() {
+        cards.sort(by: { $0.rank < $1.rank })
     }
 }
 
