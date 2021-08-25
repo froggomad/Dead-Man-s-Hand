@@ -36,6 +36,6 @@ pokerGame.drawHands()
 pokerGame.playHands()
 ```
 
-playHands uses the ranker to compare the player's hands and returns the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
+`playHands` should use the ranker to compare the player's hands and return the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
 
 # Have Fun!!
