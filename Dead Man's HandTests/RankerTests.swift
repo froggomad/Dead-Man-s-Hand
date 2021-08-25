@@ -17,6 +17,30 @@ class Dead_Man_s_HandTests: XCTestCase {
         assertNoMemoryLeak(pokerGame)
     }
     
+    // Note, there appears to be an error with this test
+    // setup as both hands contain a pair of aces but the
+    // notes say "The highest pair wins"
+    func testHighPairWins() {
+        guard let losingHand = Hand(cards: [
+            Card(suit: .spades, rank: .six),
+            Card(suit: .diamonds, rank: .ace),
+            Card(suit: .hearts, rank: .seven),
+            Card(suit: .spades, rank: .four),
+            Card(suit: .spades, rank: .ace)
+        ]),
+        
+        let winningHand = Hand(cards: [
+            Card(suit: .hearts, rank: .ace),
+            Card(suit: .clubs, rank: .ace),
+            Card(suit: .hearts, rank: .five),
+            Card(suit: .hearts, rank: .six),
+            Card(suit: .spades, rank: .seven)
+        ])
+        else { return }
+        
+        testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .pair)
+    }
+    
     func testPairWins_overDud() {
         guard let losingHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
