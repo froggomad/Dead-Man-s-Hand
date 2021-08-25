@@ -22,6 +22,7 @@
 		AAE39F8926D6A652004AB704 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8826D6A652004AB704 /* CardGame.swift */; };
 		AAE39F9126D6A69F004AB704 /* RankerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F9026D6A69F004AB704 /* RankerTests.swift */; };
 		AAE39F9B26D6A9E9004AB704 /* XCTestCase+AssertNoMemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F9A26D6A9E9004AB704 /* XCTestCase+AssertNoMemoryLeak.swift */; };
+		AAE39F9D26D6D699004AB704 /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F9C26D6D699004AB704 /* PokerGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		AAE39F9026D6A69F004AB704 /* RankerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankerTests.swift; sourceTree = "<group>"; };
 		AAE39F9226D6A69F004AB704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAE39F9A26D6A9E9004AB704 /* XCTestCase+AssertNoMemoryLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AssertNoMemoryLeak.swift"; sourceTree = "<group>"; };
+		AAE39F9C26D6D699004AB704 /* PokerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				AAE39F8326D6A4C4004AB704 /* HandRanker.swift */,
+				AAE39F9C26D6D699004AB704 /* PokerGame.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				AA1D859026D61FFF00ACDCF1 /* ViewController.swift in Sources */,
 				AA1D858C26D61FFF00ACDCF1 /* AppDelegate.swift in Sources */,
 				AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */,
+				AAE39F9D26D6D699004AB704 /* PokerGame.swift in Sources */,
 				AAE39F8026D69E2F004AB704 /* Hand.swift in Sources */,
 				AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */,
 				AA1D858E26D61FFF00ACDCF1 /* SceneDelegate.swift in Sources */,

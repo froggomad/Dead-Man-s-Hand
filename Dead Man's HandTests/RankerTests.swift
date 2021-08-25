@@ -320,19 +320,19 @@ class Dead_Man_s_HandTests: XCTestCase {
 
 private class PokerGameSpy: CardGame {
     var deck = Deck()
-    var player1: Player
-    var player2: Player
     
     var highHand: WinningHandType?
     var winningHand: Hand?
     var winningPlayer: Player?
     var highCard: Card?
     
-    lazy var ranker = HandRanker(player1: player1, player2: player2)
+    var ranker: HandRanker
+    
+    lazy var player1 = ranker.player1
+    lazy var player2 = ranker.player2
     
     init() {
-        self.player1 = Player(name: "Player 1")
-        self.player2 = Player(name: "Player 2")
+        ranker = HandRanker(player1: Player(name: "Player 1"), player2: Player(name: "Player 2"))
     }
     
     
@@ -357,18 +357,19 @@ private class PokerGameSpy: CardGame {
         
     }
     
-    func playHands() {
+    @discardableResult func playHands() -> WinningHand {
         let highHand = ranker.highHand()
         switch highHand {
         case .win(let rank, let player):
             winningHand = player.hand!
             self.highHand = rank
             winningPlayer = player
-            guard let hand = player.hand else { return }
+            guard let hand = player.hand else { return .tie }
             highCard = ranker.highestCard(hand)
         case .tie:
-            break
+            return .tie
         }
+        return .tie
     }
     
     
