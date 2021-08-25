@@ -20,7 +20,18 @@
 		AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8126D6A3B3004AB704 /* Player.swift */; };
 		AAE39F8426D6A4C4004AB704 /* HandRanker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8326D6A4C4004AB704 /* HandRanker.swift */; };
 		AAE39F8926D6A652004AB704 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8826D6A652004AB704 /* CardGame.swift */; };
+		AAE39F9126D6A69F004AB704 /* Dead_Man_s_HandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F9026D6A69F004AB704 /* Dead_Man_s_HandTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAE39F9326D6A69F004AB704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1D858026D61FFF00ACDCF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA1D858726D61FFF00ACDCF1;
+			remoteInfo = "Dead Man's Hand";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AA1D858826D61FFF00ACDCF1 /* Dead Man's Hand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dead Man's Hand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,10 +49,20 @@
 		AAE39F8126D6A3B3004AB704 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AAE39F8326D6A4C4004AB704 /* HandRanker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRanker.swift; sourceTree = "<group>"; };
 		AAE39F8826D6A652004AB704 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		AAE39F8E26D6A69F004AB704 /* Dead Man's HandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dead Man's HandTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE39F9026D6A69F004AB704 /* Dead_Man_s_HandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dead_Man_s_HandTests.swift; sourceTree = "<group>"; };
+		AAE39F9226D6A69F004AB704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AA1D858526D61FFF00ACDCF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAE39F8B26D6A69F004AB704 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1D858A26D61FFF00ACDCF1 /* Dead Man's Hand */,
+				AAE39F8F26D6A69F004AB704 /* Dead Man's HandTests */,
 				AA1D858926D61FFF00ACDCF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1D858826D61FFF00ACDCF1 /* Dead Man's Hand.app */,
+				AAE39F8E26D6A69F004AB704 /* Dead Man's HandTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +167,15 @@
 			path = "Boundaries (protocols)";
 			sourceTree = "<group>";
 		};
+		AAE39F8F26D6A69F004AB704 /* Dead Man's HandTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAE39F9026D6A69F004AB704 /* Dead_Man_s_HandTests.swift */,
+				AAE39F9226D6A69F004AB704 /* Info.plist */,
+			);
+			path = "Dead Man's HandTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +196,24 @@
 			productReference = AA1D858826D61FFF00ACDCF1 /* Dead Man's Hand.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AAE39F8D26D6A69F004AB704 /* Dead Man's HandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAE39F9526D6A69F004AB704 /* Build configuration list for PBXNativeTarget "Dead Man's HandTests" */;
+			buildPhases = (
+				AAE39F8A26D6A69F004AB704 /* Sources */,
+				AAE39F8B26D6A69F004AB704 /* Frameworks */,
+				AAE39F8C26D6A69F004AB704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAE39F9426D6A69F004AB704 /* PBXTargetDependency */,
+			);
+			name = "Dead Man's HandTests";
+			productName = "Dead Man's HandTests";
+			productReference = AAE39F8E26D6A69F004AB704 /* Dead Man's HandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,6 +225,10 @@
 				TargetAttributes = {
 					AA1D858726D61FFF00ACDCF1 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					AAE39F8D26D6A69F004AB704 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = AA1D858726D61FFF00ACDCF1;
 					};
 				};
 			};
@@ -192,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				AA1D858726D61FFF00ACDCF1 /* Dead Man's Hand */,
+				AAE39F8D26D6A69F004AB704 /* Dead Man's HandTests */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +259,13 @@
 				AA1D859826D6200000ACDCF1 /* LaunchScreen.storyboard in Resources */,
 				AA1D859526D6200000ACDCF1 /* Assets.xcassets in Resources */,
 				AA1D859326D61FFF00ACDCF1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAE39F8C26D6A69F004AB704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +289,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAE39F8A26D6A69F004AB704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE39F9126D6A69F004AB704 /* Dead_Man_s_HandTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAE39F9426D6A69F004AB704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA1D858726D61FFF00ACDCF1 /* Dead Man's Hand */;
+			targetProxy = AAE39F9326D6A69F004AB704 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AA1D859126D61FFF00ACDCF1 /* Main.storyboard */ = {
@@ -403,6 +481,44 @@
 			};
 			name = Release;
 		};
+		AAE39F9626D6A69F004AB704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Dead Man's HandTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennydubroff.Dead-Man-s-HandTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dead Man's Hand.app/Dead Man's Hand";
+			};
+			name = Debug;
+		};
+		AAE39F9726D6A69F004AB704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Dead Man's HandTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennydubroff.Dead-Man-s-HandTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dead Man's Hand.app/Dead Man's Hand";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -420,6 +536,15 @@
 			buildConfigurations = (
 				AA1D859D26D6200000ACDCF1 /* Debug */,
 				AA1D859E26D6200000ACDCF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAE39F9526D6A69F004AB704 /* Build configuration list for PBXNativeTarget "Dead Man's HandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE39F9626D6A69F004AB704 /* Debug */,
+				AAE39F9726D6A69F004AB704 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
