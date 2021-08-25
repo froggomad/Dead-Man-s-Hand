@@ -1,11 +1,11 @@
 //
-//  XCTest+testDoesntRetain.swift
+//  XCTestCase+AssertNoMemoryLeak.swift
 //  Dead Man's HandTests
 //
 //  Created by Kenneth Dubroff on 8/25/21.
 //
 
-import Foundation
+import XCTest
 
 extension XCTestCase {
     // Credit: https://www.essentialdeveloper.com/
