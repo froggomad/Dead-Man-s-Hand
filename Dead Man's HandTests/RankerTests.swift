@@ -23,9 +23,9 @@ private class PokerGameSpy: CardGame {
     
     lazy var ranker = HandRanker(player1: player1, player2: player2)
     
-    init(player1Name: String, player2Name: String) {
-        self.player1 = Player(name: player1Name)
-        self.player2 = Player(name: player2Name)
+    init() {
+        self.player1 = Player(name: "Player 1")
+        self.player2 = Player(name: "Player 2")
     }
     
     
