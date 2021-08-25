@@ -18,16 +18,13 @@ class Dead_Man_s_HandTests: XCTestCase {
     }
     
     func testHighCard_beatsLowCard() {
-        let pokerGame = PokerGameSpy()
-        
-        let losingHand = Hand(cards: [
+        guard let losingHand = Hand(cards: [
             Card(suit: .hearts, rank: .jack),
             Card(suit: .spades, rank: .eight),
             Card(suit: .hearts, rank: .ten),
             Card(suit: .hearts, rank: .ace),
             Card(suit: .hearts, rank: .queen)
-        ])
-        
+        ]),
         let winningHand = Hand(cards: [
             Card(suit: .diamonds, rank: .king),
             Card(suit: .spades, rank: .six),
@@ -35,13 +32,19 @@ class Dead_Man_s_HandTests: XCTestCase {
             Card(suit: .hearts, rank: .ten),
             Card(suit: .diamonds, rank: .ace)
         ])
+        else { return }
         
+        testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .highCard)
+    }
+    
+    private func testHands(winningHand: Hand, losingHand: Hand, expectedHandRank: WinningHandType, file: StaticString = #file, line: UInt = #line) {
+        let pokerGame = PokerGameSpy()
         pokerGame.player2.hand = losingHand
         pokerGame.player1.hand = winningHand
         pokerGame.playHands()
         
-        XCTAssertEqual(pokerGame.highHand, .highCard)
-        XCTAssertEqual(pokerGame.highCard?.rank, winningHand!.highCard().rank)
+        XCTAssertEqual(pokerGame.highHand, expectedHandRank)
+        XCTAssertEqual(pokerGame.highCard?.rank, winningHand.highCard().rank)
         XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name)
     }
 }
