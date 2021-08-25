@@ -20,7 +20,7 @@
 		AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8126D6A3B3004AB704 /* Player.swift */; };
 		AAE39F8426D6A4C4004AB704 /* HandRanker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8326D6A4C4004AB704 /* HandRanker.swift */; };
 		AAE39F8926D6A652004AB704 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8826D6A652004AB704 /* CardGame.swift */; };
-		AAE39F9126D6A69F004AB704 /* Dead_Man_s_HandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F9026D6A69F004AB704 /* Dead_Man_s_HandTests.swift */; };
+		AAE39F9126D6A69F004AB704 /* RankerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F9026D6A69F004AB704 /* RankerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		AAE39F8326D6A4C4004AB704 /* HandRanker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRanker.swift; sourceTree = "<group>"; };
 		AAE39F8826D6A652004AB704 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		AAE39F8E26D6A69F004AB704 /* Dead Man's HandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dead Man's HandTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAE39F9026D6A69F004AB704 /* Dead_Man_s_HandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dead_Man_s_HandTests.swift; sourceTree = "<group>"; };
+		AAE39F9026D6A69F004AB704 /* RankerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankerTests.swift; sourceTree = "<group>"; };
 		AAE39F9226D6A69F004AB704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +170,7 @@
 		AAE39F8F26D6A69F004AB704 /* Dead Man's HandTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAE39F9026D6A69F004AB704 /* Dead_Man_s_HandTests.swift */,
+				AAE39F9026D6A69F004AB704 /* RankerTests.swift */,
 				AAE39F9226D6A69F004AB704 /* Info.plist */,
 			);
 			path = "Dead Man's HandTests";
@@ -293,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAE39F9126D6A69F004AB704 /* Dead_Man_s_HandTests.swift in Sources */,
+				AAE39F9126D6A69F004AB704 /* RankerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
