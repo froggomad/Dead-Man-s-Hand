@@ -27,13 +27,16 @@ let ranker = HandRanker(player1: "Player1", player2: "Player2")
 let deck = Deck()
 ```
 
-Then a CardGame can be created. `CardGameSpy` in the unit tests is a good starting point.
+`PokerGame` has been created for you using the `CardGame` protocol. Feel free to customize this or implement your own game!
 
-Saying you created a CardGame conformer called PokerGame, you'll just need to draw hands and play!
 ```swift
 let pokerGame = PokerGame(ranker: ranker, deck: deck)
 pokerGame.drawHands()
-pokerGame.playHands()
+let winningResult = pokerGame.playHands()
+switch winningResult {
+case .win(let rank, let player:
+  print(player)
+  print(rank) // prints type of hand, ex: Pair
 ```
 
 `playHands` should use the ranker to compare the player's hands and return the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
