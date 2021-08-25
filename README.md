@@ -39,3 +39,10 @@ pokerGame.playHands()
 `playHands` should use the ranker to compare the player's hands and return the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
 
 # Have Fun!!
+_____________
+
+# note: Some tradeoffs were made!
+
+I typically avoid using classes unless I need the features of a class. That said, it's much less cumbersome to track mutating state when a class is involved rather than a struct, so I went in that direction.
+
+It's noted in the architecture section that I'm unsure of where to put the players, but the solution I have is working.
