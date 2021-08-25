@@ -14,6 +14,7 @@
 		AA1D859526D6200000ACDCF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1D859426D6200000ACDCF1 /* Assets.xcassets */; };
 		AA1D859826D6200000ACDCF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1D859626D6200000ACDCF1 /* LaunchScreen.storyboard */; };
 		AA1D85A326D6284E00ACDCF1 /* UIColor+NamedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */; };
+		AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D85A526D62A8A00ACDCF1 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AA1D859726D6200000ACDCF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA1D859926D6200000ACDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NamedAsset.swift"; sourceTree = "<group>"; };
+		AA1D85A526D62A8A00ACDCF1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				AA1D85A126D6202700ACDCF1 /* App */,
-				AA1D859F26D6201500ACDCF1 /* Controller */,
+				AA1D85A426D62A6400ACDCF1 /* Model */,
 				AA1D85A026D6201D00ACDCF1 /* View */,
+				AA1D859F26D6201500ACDCF1 /* Controller */,
 			);
 			path = "Dead Man's Hand";
 			sourceTree = "<group>";
@@ -92,6 +95,14 @@
 				AA1D858D26D61FFF00ACDCF1 /* SceneDelegate.swift */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		AA1D85A426D62A6400ACDCF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA1D85A526D62A8A00ACDCF1 /* Card.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				AA1D85A326D6284E00ACDCF1 /* UIColor+NamedAsset.swift in Sources */,
 				AA1D859026D61FFF00ACDCF1 /* ViewController.swift in Sources */,
 				AA1D858C26D61FFF00ACDCF1 /* AppDelegate.swift in Sources */,
+				AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */,
 				AA1D858E26D61FFF00ACDCF1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
