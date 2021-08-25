@@ -41,7 +41,15 @@ enum Rank: Int, CustomStringConvertible, Comparable, CaseIterable {
     
 }
 
-struct Card {
+struct Card: Equatable {
     let suit: Suit
     let rank: Rank
+    
+    static func ==(_ lhs: Card, _ rhs: Card) -> Bool {
+        lhs.rank == rhs.rank
+    }
+    
+    static func >(_ lhs: Card, _ rhs: Card) -> Bool {
+        lhs.rank > rhs.rank
+    }
 }

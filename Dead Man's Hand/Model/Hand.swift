@@ -108,6 +108,10 @@ struct Hand {
     }
 }
 
+extension Hand: Equatable {
+    
+}
+
 // MARK: - Winning Hand -
 /// Lists and ranks winning hands
 enum WinningHandType: Int {
