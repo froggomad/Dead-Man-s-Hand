@@ -9,7 +9,13 @@ import XCTest
 @testable import Dead_Man_s_Hand
 
 class Dead_Man_s_HandTests: XCTestCase {
-    
+    func testPokerGame_DoesntRetain_Player() {
+        let pokerGame = PokerGameSpy()
+        let player = pokerGame.player1
+        
+        assertNoMemoryLeak(player)
+        assertNoMemoryLeak(pokerGame)
+    }
 }
 
 private class PokerGameSpy: CardGame {
