@@ -17,6 +17,45 @@ class Dead_Man_s_HandTests: XCTestCase {
         assertNoMemoryLeak(pokerGame)
     }
     
+    func testStraight_winsOverThreeOfAKind() {
+        guard let winningHand = Hand(cards: [
+            Card(suit: .spades, rank: .two),
+            Card(suit: .hearts, rank: .three),
+            Card(suit: .hearts, rank: .four),
+            Card(suit: .spades, rank: .five),
+            Card(suit: .clubs, rank: .six)
+        ]),
+        let losingHand = Hand(cards: [
+            Card(suit: .hearts, rank: .ace),
+            Card(suit: .clubs, rank: .ace),
+            Card(suit: .hearts, rank: .five),
+            Card(suit: .hearts, rank: .six),
+            Card(suit: .spades, rank: .ace)
+        ])
+        else { return }
+        testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .straight)
+    }
+    
+    func test3OfAKind_winsOverTwoPair() {
+        guard let losingHand = Hand(cards: [
+            Card(suit: .spades, rank: .two),
+            Card(suit: .hearts, rank: .two),
+            Card(suit: .hearts, rank: .four),
+            Card(suit: .spades, rank: .five),
+            Card(suit: .clubs, rank: .four)
+        ]),
+        let winningHand = Hand(cards: [
+            Card(suit: .hearts, rank: .ace),
+            Card(suit: .clubs, rank: .ace),
+            Card(suit: .hearts, rank: .five),
+            Card(suit: .hearts, rank: .six),
+            Card(suit: .spades, rank: .ace)
+        ])
+        else { return }
+        
+        testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .threeOfAKind)
+    }
+    
     func testTwoPair_winsOverPair() {
         guard let winningHand = Hand(cards: [
             Card(suit: .spades, rank: .two),
