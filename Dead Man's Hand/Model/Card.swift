@@ -5,7 +5,7 @@
 //  Created by Kenneth Dubroff on 8/25/21.
 //
 
-import Foundation
+import UIKit
 
 enum Suit: String, CaseIterable {
     case spades, hearts, diamonds, clubs
@@ -19,13 +19,13 @@ enum Rank: Int, CustomStringConvertible, Comparable, CaseIterable {
     var description: String {
         switch self {
         case .ace:
-            return "Ace"
+            return "A"
         case .jack:
-            return "Jack"
+            return "J"
         case .queen:
-            return "Queen"
+            return "Q"
         case .king:
-            return "King"
+            return "K"
         default:
             return "\(self.rawValue)"
         }
