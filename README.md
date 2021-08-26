@@ -60,7 +60,7 @@ let pokerGame = PokerGame(ranker: ranker, deck: deck)
 pokerGame.drawHands()
 let winningResult = pokerGame.playHands()
 switch winningResult {
-case .win(let rank, let player:
+case .win(let rank, let player):
   print(player)
   print(rank) // prints type of hand, ex: Pair
 case .tie:
