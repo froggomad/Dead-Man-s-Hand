@@ -15,6 +15,8 @@
 		AA1D859826D6200000ACDCF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1D859626D6200000ACDCF1 /* LaunchScreen.storyboard */; };
 		AA1D85A326D6284E00ACDCF1 /* UIColor+NamedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */; };
 		AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D85A526D62A8A00ACDCF1 /* Card.swift */; };
+		AAC15D1526D7DB6500177D12 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC15D1426D7DB6500177D12 /* HomeView.swift */; };
+		AAC15D1726D7E32100177D12 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC15D1626D7E32100177D12 /* CardView.swift */; };
 		AAE39F7E26D69C69004AB704 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F7D26D69C69004AB704 /* Deck.swift */; };
 		AAE39F8026D69E2F004AB704 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F7F26D69E2F004AB704 /* Hand.swift */; };
 		AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39F8126D6A3B3004AB704 /* Player.swift */; };
@@ -46,6 +48,8 @@
 		AA1D859926D6200000ACDCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NamedAsset.swift"; sourceTree = "<group>"; };
 		AA1D85A526D62A8A00ACDCF1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		AAC15D1426D7DB6500177D12 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AAC15D1626D7E32100177D12 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AAE39F7D26D69C69004AB704 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		AAE39F7F26D69E2F004AB704 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		AAE39F8126D6A3B3004AB704 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				AA1D859426D6200000ACDCF1 /* Assets.xcassets */,
 				AA1D859626D6200000ACDCF1 /* LaunchScreen.storyboard */,
 				AA1D85A226D6284E00ACDCF1 /* UIColor+NamedAsset.swift */,
+				AAC15D1426D7DB6500177D12 /* HomeView.swift */,
+				AAC15D1626D7E32100177D12 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,8 +295,10 @@
 				AAE39F8226D6A3B3004AB704 /* Player.swift in Sources */,
 				AAE39F9D26D6D699004AB704 /* PokerGame.swift in Sources */,
 				AAE39F8026D69E2F004AB704 /* Hand.swift in Sources */,
+				AAC15D1726D7E32100177D12 /* CardView.swift in Sources */,
 				AA1D85A626D62A8A00ACDCF1 /* Card.swift in Sources */,
 				AA1D858E26D61FFF00ACDCF1 /* SceneDelegate.swift in Sources */,
+				AAC15D1526D7DB6500177D12 /* HomeView.swift in Sources */,
 				AAE39F8426D6A4C4004AB704 /* HandRanker.swift in Sources */,
 				AAE39F8926D6A652004AB704 /* CardGame.swift in Sources */,
 			);

@@ -8,12 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    override func loadView() {
+        super.loadView()
+        view = HomeView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        let cardView = CardView(card: Card(suit: .clubs, rank: .ace))
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(cardView)
+        NSLayoutConstraint.activate([
+            cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            cardView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
     }
 
-
 }
-
