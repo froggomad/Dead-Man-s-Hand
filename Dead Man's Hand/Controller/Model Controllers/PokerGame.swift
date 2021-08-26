@@ -14,10 +14,9 @@ class PokerGame: CardGame {
     lazy var player1 = ranker.player1
     lazy var player2 = ranker.player2
     
-    init() {
-        ranker = HandRanker(player1: Player(name: "Player 1"), player2: Player(name: "Player 2"))
+    init(player1: Player = .init(name: "Player1"), player2: Player = .init(name: "Player2")) {
+        ranker = HandRanker(player1: player1, player2: player2)
     }
-    
     
     func drawHands() {
         if deck.count < 10 {
@@ -43,6 +42,5 @@ class PokerGame: CardGame {
     func playHands() -> WinningHand {
         ranker.highHand()
     }
-    
     
 }
