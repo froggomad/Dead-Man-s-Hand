@@ -312,9 +312,9 @@ class Dead_Man_s_HandTests: XCTestCase {
         pokerGame.player1.hand = winningHand
         pokerGame.playHands()
         
-        XCTAssertEqual(pokerGame.highHand, expectedHandRank)
-        XCTAssertEqual(pokerGame.highCard?.rank, winningHand.cards.last!.rank)
-        XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name)
+        XCTAssertEqual(pokerGame.highHand, expectedHandRank, file: file, line: line)
+        XCTAssertEqual(pokerGame.highCard?.rank, winningHand.cards.last!.rank, file: file, line: line)
+        XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name, file: file, line: line)
     }
 }
 
