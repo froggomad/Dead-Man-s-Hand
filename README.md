@@ -46,19 +46,19 @@ lazy var color: UIColor = {
 - A sound will be played and a label revealed showing whether the player won or lost
 
 # How to Play! (Run the rules engine)
-In order to play, the game requires a `HandRanker` and `Deck` be instantiated.
-```swift
-let ranker = HandRanker(player1: "Player1", player2: "Player2")
-let deck = Deck()
-```
-
 `PokerGame` has been created for you using the `CardGame` protocol. Feel free to customize this or implement your own game - be sure to also subclass `HandRanker` to fit your new rules!
 
+In order to play, create 2 players and a PokerGame
+```swift
+let player1 = Player(name: "Player 1")
+let player2 = Player(name: "Player 2")
+let pokerGame = PokerGame(player1: player1, player2: player2)
+```
 `playHands` should use the ranker to compare the player's hands and return the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
 ```swift
-let pokerGame = PokerGame(ranker: ranker, deck: deck)
 pokerGame.drawHands()
 let winningResult = pokerGame.playHands()
+
 switch winningResult {
 case .win(let rank, let player):
   print(player)
