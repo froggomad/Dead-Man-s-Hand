@@ -50,7 +50,10 @@ struct HandRanker {
             } else {
                 return .win(rank: highHand2, player: player2)
             }
+        } else if highHand2.rawValue > highHand1.rawValue {
+            return .win(rank: highHand2, player: player2)
         }
+        
         return .tie // edge case
     }
     
