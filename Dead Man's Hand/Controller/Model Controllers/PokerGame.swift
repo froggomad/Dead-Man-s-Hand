@@ -21,12 +21,9 @@ class PokerGame: CardGame {
     func drawHands() {
         if deck.count < 10 {
             deck.refresh()
-            drawHand(player: player1)
-            drawHand(player: player2)
-        } else {
-            drawHand(player: player1)
-            drawHand(player: player2)
         }
+        drawHand(player: player1)
+        drawHand(player: player2)        
     }
     
     private func drawHand(player: Player) {
