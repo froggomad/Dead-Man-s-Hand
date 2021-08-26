@@ -17,7 +17,34 @@ Traditional Poker rules for ranking hands - 5 card stud
 I'm not positive the best decision is for `CardGame` to require a HandRanker and deck... 
 rather than players, HandRanker, and deck - and for HandRanker to get its players from CardGame
 
-# UI (Coming Soon!)
+# UI (Coming Soon!) -
+- UI will consist of a single ViewController with the app's title at top and a `Deal` button under where the player's cards will be shown and a `Reveal` button toward the center of the view which will initially be hidden
+  - player's cards will be "face up" in the lower portion of the screen
+  - opponent's cards will be "face down" in the upper portion of the screen
+- Card will be given a computed property `color: UIColor`:
+```swift
+lazy var color: UIColor = {
+        switch suit {
+        case .clubs, .spades:
+            return .black
+        case .hearts, .diamonds:
+            return .red
+        }
+    }()
+```
+- Images for each suit will be added to `assets.xcassets`
+  - a `suitImage: UIImage` property will be added to the `Card` struct and a computed property will be created similar to `var color: UIColor`
+- a `CardView: UIView` class will be created that has a `card: Card` property it will use to setup its views
+  - top left and bottom right: vertical stackView consisting of a label containing the rank and image containing the suit
+  - cornerRadius set to 10
+  - height set to twice the width
+- a `CardBackView: UIView` class will be created that just has an image displaying the card's back
+- When a player taps `Deal`, a `CardView` will be created for each of the player's cards and added to an area of the view consisting of the player's hand
+- 5 `CardBackView` views will be created and placed in the opponent's area
+- The `Reveal` button will be added to the view
+- When a player taps `Reveal` their opponents cards will be replaced with a `CardView`, revealing the opponent's hand
+- The reveal button will be hidden
+- A sound will be played and a label revealed showing whether the player won or lost
 
 # How to Play! (Run the rules engine)
 In order to play, the game requires a `HandRanker` and `Deck` be instantiated.
@@ -27,8 +54,9 @@ let ranker = HandRanker(player1: "Player1", player2: "Player2")
 let deck = Deck()
 ```
 
-`PokerGame` has been created for you using the `CardGame` protocol. Feel free to customize this or implement your own game!
+`PokerGame` has been created for you using the `CardGame` protocol. Feel free to customize this or implement your own game - be sure to also subclass `HandRanker` to fit your new rules!
 
+`playHands` should use the ranker to compare the player's hands and return the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
 ```swift
 let pokerGame = PokerGame(ranker: ranker, deck: deck)
 pokerGame.drawHands()
@@ -39,7 +67,7 @@ case .win(let rank, let player:
   print(rank) // prints type of hand, ex: Pair
 ```
 
-`playHands` should use the ranker to compare the player's hands and return the resulting Winning Hand Type (ex: pair) the highest rank (ex: ace) and the Winning Player
+
 
 # Have Fun!!
 _____________
