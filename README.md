@@ -67,8 +67,6 @@ case .win(let rank, let player:
   print(rank) // prints type of hand, ex: Pair
 ```
 
-
-
 # Have Fun!!
 _____________
 
@@ -77,3 +75,7 @@ _____________
 I typically avoid using classes unless I need the features of a class. That said, it's much less cumbersome to track mutating state when a class is involved rather than a struct, so I went in that direction with the player.
 
 It's noted in the architecture section that I'm unsure of where to put the players, but the solution I have is working.
+
+# Time Taken
+I spent 5.5 hours on this project including UI documentation
+[Toggl_time_entries](https://github.com/froggomad/Dead-Man-s-Hand/files/7061489/Toggl_time_entries_2021-08-23_to_2021-08-29.pdf)
