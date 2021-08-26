@@ -72,6 +72,10 @@ I typically avoid using classes unless I need the features of a class. That said
 
 It's noted in the architecture section that I'm unsure of where to put the players, but the solution I have is working.
 
+If I had additional time to work on the project, I'd complete the UI. 
+
+I would also further separate the rules engine by making it a framework. That way other games could be created by subclassing `HandRanker` and implementing a new `CardGame`. It could then be attached to any UI. One major benefit of this approach is testing time. Since UIKit isn't a dependency of anything that would be in the framework, it could be created as a macOS framework. This eliminates the need for a simulator which dramatically decreases testing time for a lot of projects.
+
 # Time Taken
 I spent 5.5 hours on this project including UI documentation
 [Toggl_time_entries](https://github.com/froggomad/Dead-Man-s-Hand/files/7061489/Toggl_time_entries_2021-08-23_to_2021-08-29.pdf)
