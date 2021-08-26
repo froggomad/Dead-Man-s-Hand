@@ -44,6 +44,14 @@ enum Rank: Int, CustomStringConvertible, Comparable, CaseIterable {
 struct Card: Equatable {
     let suit: Suit
     let rank: Rank
+    lazy var color: UIColor = {
+        switch suit {
+        case .clubs, .spades:
+            return .black
+        case .hearts, .diamonds:
+            return .red
+        }
+    }()
     
     static func ==(_ lhs: Card, _ rhs: Card) -> Bool {
         lhs.rank == rhs.rank
