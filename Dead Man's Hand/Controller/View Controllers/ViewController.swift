@@ -26,13 +26,21 @@ class ViewController: UIViewController {
         game.player1.hand!.cards.enumerated().forEach { index, card in
             let cardView = CardView(card: card)
             cardView.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(cardView)
+            UIView.animate(withDuration: 0.5, delay: Double(index)) { [weak self] in
+                guard let self = self else { return }
+                
+                let width = UIScreen.main.bounds.width/CardView.cardWidth
+                
+                let spacing = index != 0 ? CGFloat(width*CGFloat(index)) :
+                    index != 1 ? CGFloat(width*CGFloat(index)) : width
+                
+                self.view.addSubview(cardView)
+                NSLayoutConstraint.activate([
+                    cardView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+                    cardView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: CardView.cardWidth * CGFloat(index) + spacing)
+                ])
+            }
             
-            let spacing = CGFloat(4*index)
-            NSLayoutConstraint.activate([
-                cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-                cardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: CardView.cardWidth * CGFloat(index) + spacing)
-            ])
         }
         
         let result = game.playHands()
