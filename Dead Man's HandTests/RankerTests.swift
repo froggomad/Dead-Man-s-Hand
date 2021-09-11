@@ -316,8 +316,31 @@ class Dead_Man_s_HandTests: XCTestCase {
         XCTAssertEqual(pokerGame.highCard?.rank, winningHand.cards.last!.rank, file: file, line: line)
         XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name, file: file, line: line)
     }
+    
+    private func parseHand(hand: String) -> Hand? {
+        var cards: [Card] = []
+        for cardWithSuit in hand.components(separatedBy: " ") {
+            let stringCard = String(cardWithSuit)
+            
+            guard let valueChar = stringCard.first,
+                  let suitChar = stringCard.last,
+                  // get rank from Int or Letter
+                  let value = Rank(rawValue: Int(String(valueChar)) ?? 0)
+                    ?? Rank.rank(from: String(valueChar)),
+                  
+                  let suit = Suit(rawValue: String(suitChar))
+            else {
+                return nil
+            }
+            
+            cards.append(Card(suit: suit, rank: value))
+        }
+        
+        return Hand(cards: cards)
+    }
 }
-
+    
+   
 private class PokerGameSpy: CardGame {
     var deck = Deck()
     
