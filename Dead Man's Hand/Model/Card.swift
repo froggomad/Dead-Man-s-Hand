@@ -8,13 +8,31 @@
 import UIKit
 
 enum Suit: String, CaseIterable {
-    case spades, hearts, diamonds, clubs
+    case spades = "S", hearts = "H", diamonds = "D", clubs = "C"
 }
 
 enum Rank: Int, CustomStringConvertible, Comparable, CaseIterable {
+    
     case two = 2, three, four, five, six, seven, eight, nine, ten
     case jack, queen, king
     case ace
+    
+    static func rank(from string: String) -> Self? {
+        switch string {
+        case "A":
+            return .ace
+        case "K":
+            return .king
+        case "Q":
+            return .queen
+        case "J":
+            return .jack
+        case "T":
+            return .ten
+        default:
+            return nil
+        }
+    }
     
     var description: String {
         switch self {
