@@ -18,142 +18,78 @@ class Dead_Man_s_HandTests: XCTestCase {
     }
     
     func testHighestStraightFlush_wins() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six)
-        ]),
-        let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .king),
-            Card(suit: .spades, rank: .ace),
-            Card(suit: .spades, rank: .ten),
-            Card(suit: .spades, rank: .queen),
-            Card(suit: .spades, rank: .jack)
-        ])
-        else { return }
+        guard let losingHand = parseHand(hand: "2H 3H 4H 5H 6H"),
+              let winningHand = parseHand(hand: "KS AS TS QS JS")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .straightFlush)
     }
     
     func testStraightFlush_winsOver_fourOfAKind() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six)
-        ]),
-        let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .ace),
-            Card(suit: .diamonds, rank: .ace),
-            Card(suit: .clubs, rank: .ace),
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .diamonds, rank: .jack)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "2H 3H 4H 5H 6H"),
+              let losingHand = parseHand(hand: "AS AD AC AH JD")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .straightFlush)
     }
     
     func testHighFourOfAKind_winsOver_lowFourOfAKind() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .ace),
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .diamonds, rank: .ace),
-            Card(suit: .clubs, rank: .ace)
-        ]),
-        let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .jack),
-            Card(suit: .diamonds, rank: .jack),
-            Card(suit: .clubs, rank: .jack),
-            Card(suit: .hearts, rank: .jack),
-            Card(suit: .diamonds, rank: .three)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "AS AH 2H AD AC"),
+              let losingHand = parseHand(hand: "JS JD JC JH 3D")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .fourOfAKind)
     }
     
     func testFourOfAKind_winsOver_fullHouse() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .spades, rank: .ace),
-            Card(suit: .clubs, rank: .ace)
-        ]),
-        let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .jack),
-            Card(suit: .diamonds, rank: .jack),
-            Card(suit: .clubs, rank: .jack),
-            Card(suit: .hearts, rank: .jack),
-            Card(suit: .diamonds, rank: .ace)
-        ])
-        else { return }
+        guard let losingHand = parseHand(hand: "2S AH 2H AS AC"),
+        let winningHand = parseHand(hand: "JS JD JC JH AD")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .fourOfAKind)
     }
     
     func testFullHouse_winsOver_flush() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .spades, rank: .ace),
-            Card(suit: .clubs, rank: .ace)
-        ]),
-        let losingHand = Hand(cards: [
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .hearts, rank: .seven)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "2S AH 2H AS AC"),
+              let losingHand = parseHand(hand: "2H 3H 5H 6H 7H")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .fullHouse)
     }
     
     func testHighestFlush_wins() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .ace),
-            Card(suit: .spades, rank: .three),
-            Card(suit: .spades, rank: .four),
-            Card(suit: .spades, rank: .eight),
-            Card(suit: .spades, rank: .two)
-        ]),
-        let losingHand = Hand(cards: [
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .hearts, rank: .seven)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "AS 3S 4S 8S 2S"),
+              let losingHand = parseHand(hand: "2S 3H 4H 5S 6C")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .flush)
     }
     
     func testFlush_winsOver_straight() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .hearts, rank: .seven)
-        ]),
-            let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .spades, rank: .five),
-            Card(suit: .clubs, rank: .six)
-        ])
-        
-        else { return }
+        guard let winningHand = parseHand(hand: "2H 3H 5H 6H 7H"),
+              let losingHand = parseHand(hand: "2S 3H 4H 5S 6C")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .flush)
     }
@@ -163,60 +99,34 @@ class Dead_Man_s_HandTests: XCTestCase {
     }
     
     func testStraight_winsOver_threeOfAKind() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .three),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .spades, rank: .five),
-            Card(suit: .clubs, rank: .six)
-        ]),
-        let losingHand = Hand(cards: [
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .clubs, rank: .ace),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .spades, rank: .ace)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "2S 3H 4H 5S 6C"),
+              let losingHand = parseHand(hand: "AH AC 5H 6H AS")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
+        
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .straight)
     }
     
     func test3OfAKind_winsOver_twoPair() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .spades, rank: .five),
-            Card(suit: .clubs, rank: .four)
-        ]),
-        let winningHand = Hand(cards: [
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .clubs, rank: .ace),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .spades, rank: .ace)
-        ])
-        else { return }
+        guard let losingHand = parseHand(hand: "2S 2H 4H 5S 4C"),
+              let winningHand = parseHand(hand: "AH AC 5H 6H AS")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .threeOfAKind)
     }
     
     func testTwoPair_winsOver_pair() {
-        guard let winningHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .two),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .spades, rank: .five),
-            Card(suit: .clubs, rank: .four)
-        ]),
-        let losingHand = Hand(cards: [
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .clubs, rank: .ace),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .spades, rank: .seven)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "2S 2H 4H 5S 4C"),
+              let losingHand = parseHand(hand: "AH AC 5H 6H 7S")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .twoPair)
     }
     
@@ -224,84 +134,45 @@ class Dead_Man_s_HandTests: XCTestCase {
     // setup as both hands contain a pair of aces but the
     // notes say "The highest pair wins"
     func testHighPairWins() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .six),
-            Card(suit: .diamonds, rank: .ace),
-            Card(suit: .hearts, rank: .seven),
-            Card(suit: .spades, rank: .four),
-            Card(suit: .spades, rank: .ace)
-        ]),
-        
-        let winningHand = Hand(cards: [
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .clubs, rank: .ace),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .spades, rank: .seven)
-        ])
-        else { return }
+        guard let losingHand = parseHand(hand: "6S AD 7H 4S AS"),
+              let winningHand = parseHand(hand: "AH AC 5H 6H 7S")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .pair)
     }
     
     func testPairWins_over_dud() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .spades, rank: .two),
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .spades, rank: .five),
-            Card(suit: .clubs, rank: .king)
-        ]),
-        
-        let winningHand = Hand(cards: [
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .clubs, rank: .ace),
-            Card(suit: .hearts, rank: .five),
-            Card(suit: .hearts, rank: .six),
-            Card(suit: .spades, rank: .seven)
-        ])
-        else { return }
+        guard let losingHand = parseHand(hand: "2S AH 4H 5S KC"),
+              let winningHand = parseHand(hand: "AH AC 5H 6H 7S")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .pair)
     }
     
     func testHighPair_wins() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .clubs, rank: .eight),
-            Card(suit: .spades, rank: .four),
-            Card(suit: .hearts, rank: .king),
-            Card(suit: .spades, rank: .jack),
-            Card(suit: .diamonds, rank: .four)
-        ]),
-        
-        let winningHand = Hand(cards: [
-            Card(suit: .clubs, rank: .king),
-            Card(suit: .hearts, rank: .four),
-            Card(suit: .spades, rank: .king),
-            Card(suit: .spades, rank: .jack),
-            Card(suit: .diamonds, rank: .ace)
-        ])
-        else { return }
+        guard let losingHand = parseHand(hand: "8C 4S KH JS 4D"),
+              let winningHand = parseHand(hand: "KC 4H KS 2H 8D")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .pair)
     }
     
     func testHighCard_winsOver_lowCard() {
-        guard let losingHand = Hand(cards: [
-            Card(suit: .hearts, rank: .jack),
-            Card(suit: .spades, rank: .eight),
-            Card(suit: .hearts, rank: .ten),
-            Card(suit: .hearts, rank: .ace),
-            Card(suit: .hearts, rank: .queen)
-        ]),
-        let winningHand = Hand(cards: [
-            Card(suit: .diamonds, rank: .king),
-            Card(suit: .spades, rank: .six),
-            Card(suit: .diamonds, rank: .nine),
-            Card(suit: .hearts, rank: .ten),
-            Card(suit: .diamonds, rank: .ace)
-        ])
-        else { return }
+        guard let winningHand = parseHand(hand: "KD 6S 9D TH AD"),
+              let losingHand = parseHand(hand: "JH 8S TH AH QH")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
         
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .highCard)
     }
