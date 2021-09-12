@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Deck {
+class Deck {
     private var cards: [Card] = []
     
     init() {
@@ -15,14 +15,14 @@ struct Deck {
         shuffleDeck()
     }
     
-    mutating func drawCardFromDeckAndRemove() -> Card {
+    func drawCardFromDeckAndRemove() -> Card {
         let randomNumber = Int.random(in: 0..<cards.count)
         let card = cards[randomNumber]
         defer { cards.remove(at: randomNumber) } // defer to mutate collection after card is returned
         return card
     }
 
-    mutating func replaceDeckWithNewDeck() {
+    func replaceDeckWithNewDeck() {
         cards = Suit.allCases.flatMap { suit in
             Rank.allCases.map { rank in
                 Card(suit: suit, rank: rank)
@@ -30,7 +30,7 @@ struct Deck {
         }
     }
     
-    mutating func shuffleDeck() {
+    func shuffleDeck() {
         cards.shuffle()
     }
     
