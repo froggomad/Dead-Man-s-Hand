@@ -17,23 +17,6 @@ enum Rank: Int, CustomStringConvertible, Comparable, CaseIterable {
     case jack, queen, king
     case ace
     
-    static func rank(from string: String) -> Self? {
-        switch string {
-        case "A":
-            return .ace
-        case "K":
-            return .king
-        case "Q":
-            return .queen
-        case "J":
-            return .jack
-        case "T":
-            return .ten
-        default:
-            return nil
-        }
-    }
-    
     var description: String {
         switch self {
         case .ace:

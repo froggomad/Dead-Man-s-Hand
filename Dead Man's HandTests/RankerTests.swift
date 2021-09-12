@@ -197,7 +197,7 @@ class Dead_Man_s_HandTests: XCTestCase {
                   let suitChar = stringCard.last,
                   // get rank from Int or Letter
                   let value = Rank(rawValue: Int(String(valueChar)) ?? 0)
-                    ?? Rank.rank(from: String(valueChar)),
+                    ?? rank(from: String(valueChar)),
                   
                   let suit = Suit(rawValue: String(suitChar))
             else {
@@ -209,7 +209,25 @@ class Dead_Man_s_HandTests: XCTestCase {
         
         return Hand(cards: cards)
     }
+    
+    private func rank(from string: String) -> Rank? {
+        switch string {
+        case "A":
+            return .ace
+        case "K":
+            return .king
+        case "Q":
+            return .queen
+        case "J":
+            return .jack
+        case "T":
+            return .ten
+        default:
+            return nil
+        }
+    }
 }
+
     
    
 private class PokerGameSpy: CardGame {
