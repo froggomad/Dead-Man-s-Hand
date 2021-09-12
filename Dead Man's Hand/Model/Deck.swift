@@ -11,23 +11,18 @@ struct Deck {
     private var cards: [Card] = []
     
     init() {
-        refresh()
-        shuffle()
+        replaceDeckWithNewDeck()
+        shuffleDeck()
     }
     
-    /// Draw a card from the deck
-    /// - Note: Card will be removed from `cards`
-    /// after operation completes
-    mutating func drawCard() -> Card {
+    mutating func drawCardFromDeckAndRemove() -> Card {
         let randomNumber = Int.random(in: 0..<cards.count)
         let card = cards[randomNumber]
         defer { cards.remove(at: randomNumber) } // defer to mutate collection after card is returned
         return card
     }
-    
-    /// Fill the deck with cards
-    /// - WARNING: Will replace `cards` collection in place
-    mutating func refresh() {
+
+    mutating func replaceDeckWithNewDeck() {
         cards = Suit.allCases.flatMap { suit in
             Rank.allCases.map { rank in
                 Card(suit: suit, rank: rank)
@@ -35,12 +30,8 @@ struct Deck {
         }
     }
     
-    /// Shuffle the deck 7 times
-    mutating func shuffle() {
-        // vegas shuffles 7 times :P
-        (1...7).forEach { _ in
-            cards.shuffle()
-        }
+    mutating func shuffleDeck() {
+        cards.shuffle()
     }
     
     var count: Int {
