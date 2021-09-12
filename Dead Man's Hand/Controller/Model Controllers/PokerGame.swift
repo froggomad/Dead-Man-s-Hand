@@ -20,17 +20,17 @@ class PokerGame: CardGame {
     
     func drawHands() {
         if deck.count < 10 {
-            deck.refresh()
+            deck.replaceDeckWithNewDeck()
         }
         drawHand(player: player1)
-        drawHand(player: player2)        
+        drawHand(player: player2)
     }
     
     private func drawHand(player: Player) {
         
         var cards: [Card] = []
         (1...5).forEach { _ in
-            cards.append(deck.drawCard())
+            cards.append(deck.drawCardFromDeckAndRemove())
         }
         player.hand = .init(cards: cards)
         

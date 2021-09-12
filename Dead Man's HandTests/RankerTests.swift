@@ -95,7 +95,13 @@ class Dead_Man_s_HandTests: XCTestCase {
     }
     
     func testEqualStraightIsTie() {
-        // TODO: refactor helper function to handle ties
+        guard let hand1 = parseHand(hand: "2S 3H 4H 5S 6C"),
+              let hand2 = parseHand(hand: "3D 4C 5H 6H 2C")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
+        testTie(hand1: hand1, hand2: hand2)
     }
     
     func testStraight_winsOver_threeOfAKind() {
@@ -177,6 +183,16 @@ class Dead_Man_s_HandTests: XCTestCase {
         testHands(winningHand: winningHand, losingHand: losingHand, expectedHandRank: .highCard)
     }
     
+    func testBadHandsTie() {
+        guard let hand1 = parseHand(hand: "2S AH 4H 5S 6C"),
+              let hand2 = parseHand(hand: "AD 4C 5H 6H 2C")
+        else {
+            XCTFail("invalid hand(s)")
+            return
+        }
+        testTie(hand1: hand1, hand2: hand2)
+    }
+    
     private func testHands(winningHand: Hand, losingHand: Hand, expectedHandRank: WinningHandType, file: StaticString = #file, line: UInt = #line) {
         let pokerGame = PokerGameSpy()
         pokerGame.player2.hand = losingHand
@@ -186,6 +202,17 @@ class Dead_Man_s_HandTests: XCTestCase {
         XCTAssertEqual(pokerGame.highHand, expectedHandRank, file: file, line: line)
         XCTAssertEqual(pokerGame.highCard?.rank, winningHand.cards.last!.rank, file: file, line: line)
         XCTAssertEqual(pokerGame.winningPlayer?.name, pokerGame.player1.name, file: file, line: line)
+    }
+    
+    private func testTie(hand1: Hand, hand2: Hand, file: StaticString = #file, line: UInt = #line) {
+        let pokerGame = PokerGameSpy()
+        pokerGame.player1.hand = hand1
+        pokerGame.player2.hand = hand2
+        pokerGame.playHands()
+        
+        XCTAssertTrue(pokerGame.isTie, file: file, line: line)
+        XCTAssertNil(pokerGame.winningPlayer, file: file, line: line)
+        XCTAssertEqual(pokerGame.winningHand, nil, file: file, line: line)
     }
     
     private func parseHand(hand: String) -> Hand? {
@@ -237,6 +264,7 @@ private class PokerGameSpy: CardGame {
     var winningHand: Hand?
     var winningPlayer: Player?
     var highCard: Card?
+    var isTie: Bool = false
     
     var ranker: HandRanker
     
@@ -279,6 +307,7 @@ private class PokerGameSpy: CardGame {
             guard let hand = player.hand else { return .tie }
             highCard = ranker.highestCard(hand)
         case .tie:
+            isTie = true
             return .tie
         }
         return .tie
